@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<title>Crossfilter</title>
+<title>Quick way to select data by date</title>
+<!--
+    
+    This code has been copied in a rush from the crossfilter homepage
+    http://square.github.io/crossfilter/ and quickly fit around the
+    data as a proof of concept, this is why there are many references
+    to "flights" around.
+    
+  -->
 <style>
 
 @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700);
@@ -168,25 +176,16 @@ aside {
   <div id="flight-list" class="list"></div>
 </div>
 
-<footer>
-  <span style="float:right;">
-    Released under the <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</a>.
-  </span>
-  Copyright 2012 <a href="http://squareup.com">Square, Inc.</a>
-</footer>
-
 </div>
 
 <script src="bower_components/crossfilter/crossfilter.min.js"></script>
 <script src="bower_components/d3/d3.min.js"></script>
 <script>
 
-// (It's CSV, but GitHub Pages only gzip's JSON at the moment.)
 d3.json("data.json", function(error, flights) {
 
   // Various formatters.
   var formatNumber = d3.format(",d"),
-      formatChange = d3.format("+,d"),
       formatDate = d3.time.format("%B %d, %Y"),
       formatTime = d3.time.format("%I:%M %p");
 
